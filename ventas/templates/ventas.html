@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link href="{% static 'css/ventas.css' %}" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Tienda DM Tecnologic</h2>
+<form method="POST">
+            <h4>Datos Personales</h4>
+<div class="input-group">
+                <div class="input-box">
+                    <input type="text" placeholder="Nombres" required class="name">
+                    <i class="fa fa-user icon"></i>
+                </div>
+<div class="input-box">
+                    <input type="text" placeholder="Apellidos" required class="name">
+                    <i class="fa fa-user icon"></i>
+                </div>
+</div>
+<div class="input-group">
+    <div class="input-box">
+        <input list="text" placeholder="Tipo De Documento" required class="name">
+        <i class="fa fa-id-card-o icon"></i>
+        <datalist id="Documento">
+            <option>Cedula Ciudadanía</option>
+            <option>Tarjeta De Identidad</option>
+            <option>Pasaporte</option>
+          </datalist>
+    </div>
+<div class="input-box">
+        <input type="text" placeholder="N° Documento" required class="name">
+        <i class="fa fa-id-card-o icon"></i>
+    </div>
+</div>
+<div class="input-group">
+    <div class="input-box">
+        <input type="text" placeholder="Telefono" required class="name">
+        <i class="fa fa-phone icon"></i>
+    </div>
+</div>
+<div class="input-group">
+    <div class="input-box">
+        <input type="email" placeholder="Correo Electronico" required class="name">
+        <i class="fa fa-envelope icon"></i>
+    </div>
+</div>
+<div class="input-group">
+                <div class="input-box">
+                    <input type="email" placeholder="Direccion" required class="name">
+                    <i class="fa fa-street-view icon"></i>
+                </div>
+</div>
+<!-- De aca para abajo -->
+<div class="input-group">
+    <div class="input-box">
+        <input list="Departamento" placeholder="Departamento" required class="name">
+        <i class="fa fa-globe icon"></i>
+        <datalist id="Departamento">
+            <option>Amazonas</option>
+            <option>Antioquia</option>
+            <option>Arauca</option>
+            <option>Atlántico</option>
+            <option>Bolívar</option>
+            <option>Boyacá</option>
+            <option>Caldas</option>
+            <option>Caquetá</option>
+            <option>Casanare</option>
+            <option>Cauca</option>
+            <option>Cesar</option>
+            <option>Chocó</option>
+            <option>Córdoba</option>
+            <option>Cundinamarca</option>
+            <option>Guainía</option>
+            <option>Guaviare</option>
+            <option>Huila</option>
+            <option>La Guajira</option>
+            <option>Magdalena</option>
+            <option>Meta</option>
+            <option>Nariño</option>
+            <option>Norte de Santander</option>
+            <option>Putumayo</option>
+            <option>Quindío</option>
+            <option>Risaralda</option>
+            <option>San Andrés y Providencia</option>
+            <option>Santander</option>
+            <option>Sucre</option>
+            <option>Tolima</option>
+            <option>Valle del Cauca</option>
+            <option>Vaupés</option>
+            <option>Vichada</option>
+          </datalist>
+    </div>
+<div class="input-box">
+        <input list="Ciudad" placeholder="Ciudad" required class="name">
+        <i class="fa fa-globe icon"></i>
+        <datalist id="Ciudad">
+            <option>Medellín</option>
+            <option>T</option>
+            <option>P</option>
+          </datalist>
+    </div>
+</div>
+<div class="input-group">
+                <div class="input-box">
+                    <h4>
+Forma De Pago</h4>
+                    <input type="radio" name="pay" id="bc1" class="radio">
+                    <label for="bc1"><span><i class="fa fa-money"></i> Efectivo</span></label>
+                    <input type="radio" name="pay" id="bc2" checked class="radio">
+                    <label for="bc2"><span><i class="fa fa-cc-visa"></i> Tarjeta Credito O Debito</span></label>
+                    <input type="radio" name="pay" id="bc3" class="radio">
+                    <label for="bc3"><span><i class="fa fa-cc-paypal"></i> Paypal</span></label>
+                    <!-- hola -->
+                    <input type="radio" name="pay" id="bc4" class="radio">
+                    <label for="bc4"><span><i class="fa fa-money"></i> Pse</span></label>
+                </div>
+</div>
+<!-- <div class="input-group">
+                <div class="input-box">
+                    <input type="tel" placeholder="Card Number" required class="name">
+                    <i class="fa fa-credit-card icon"></i>
+                </div>
+</div>
+<div class="input-group">
+                <div class="input-box">
+                    <input type="tel" placeholder="Card CVC" required class="name">
+                    <i class="fa fa-user icon"></i>
+                </div>
+<div class="input-box">
+                    <select>
+                        <option>01 jun</option>
+                        <option>02 jun</option>
+                        <option>03 jun</option>
+                    </select>
+                    <select>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                    </select>
+                </div>
+</div> -->
+<div class="input-group">
+                <div class="input-box">
+                    <button type="submit">Volver Al Inicio <a href="{% url 'inicio' %}"></a></button>
+                    <!-- <li><a href="inicio.html">Inicio</a></li> -->
+                </div>
+                <div class="input-box">
+                    <button type="submit">Finalizar Compra</button>
+                </div>
+</div>
+</form>
+</div>
+</body>
+</html>
