@@ -3,44 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda DM Tecnologic</title>
+    <title>Tienda DM</title>
     {% load static %}
     <link href="{% static 'css/ventas.css' %}" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
-
-    
-
     <div class="wrapper">
-        <h2>Tienda DM Tecnologic</h2>
+        <h2>Tienda DM</h2>
 <form method="POST">
-    <h4>Datos Del Producto Comprado</h4>
+    <h4>Informacion Del Producto Comprado</h4>
     <div class="input-group">
                     <div class="input-box">
                         <input type="text" value={{producto.name}} placeholder="Nombre Producto" required class="name" disabled>
-                        <i class="fa fa-user icon"></i>
+                        <i class="fa fa-chevron-circle-right icon"></i>
                     </div>
     <div class="input-box">
                         <input type="text" value={{producto.category}} placeholder="Categoria" required class="name" disabled>
-                        <i class="fa fa-user icon"></i>
+                        <i class="fa fa-chevron-circle-right icon"></i>
                     </div>
     </div>
     <div class="input-group">
         <div class="input-box">
             <input type="text" placeholder="Costo" value={{producto.cost}}  required class="name" disabled>
-            <i class="fa fa-id-card-o icon"></i>
+            <i class="fa fa-chevron-circle-right icon"></i>
         </div>
     <div class="input-box">
-            <input type="number" min="0" value={{producto.cantidad_stock}}  placeholder="Cantidad" required class="name">
-            <i class="fa fa-id-card-o icon"></i>
+            <input type="text" min="0" value={{producto.cantidad_stock}}  placeholder="Stock" required class="name" disabled>
+            <i class="fa fa-chevron-circle-right icon"></i>
         </div>
     </div>
     <div class="input-group">
     <div class="input-box">
             <input type="text" placeholder="Descripcion" value={{producto.description}}  required class="name" disabled>
-            <i class="fa fa-id-card-o icon"></i>
+            <i class="fa fa-chevron-circle-right icon"></i>
         </div>
     </div>
             <h4>Datos Personales</h4>
@@ -83,7 +80,7 @@
 </div>
 <div class="input-group">
                 <div class="input-box">
-                    <input type="email" placeholder="Direccion" required class="name">
+                    <input type="text" placeholder="Direccion" required class="name">
                     <i class="fa fa-street-view icon"></i>
                 </div>
 </div>
@@ -137,19 +134,22 @@
           </datalist>
     </div>
 </div>
+<div class="input-box">
+    <input type="number" placeholder="Cuantas unidades desea llevar" required class="name" min="1">
+    <i class="fa fa-hashtag icon"></i>
+</div>
 <div class="input-group">
-                <div class="input-box">
-                    <h4>
-Forma De Pago</h4>
-                    <input type="radio" name="pay" id="bc1" class="radio">
-                    <label for="bc1"><span><i class="fa fa-money"></i> Efectivo</span></label>
-                    <input type="radio" name="pay" id="bc2" class="radio">
-                    <label for="bc2"><span><i class="fa fa-cc-visa"></i> Tarjeta Credito O Debito</span></label>
-                    <input type="radio" name="pay" id="bc3" class="radio">
-                    <!-- <label for="bc3"><span><i class="fa fa-cc-paypal"></i> Paypal</span></label>
-                    <input type="radio" name="pay" id="bc4" class="radio">
-                    <label for="bc4"><span><i class="fa fa-money"></i> Pse</span></label> -->
-                </div>
+        <div class="input-box">
+            <h4>Forma De Pago</h4>
+                <input type="radio" name="pay" id="bc1" class="radio">
+                <label for="bc1"><span><i class="fa fa-money"></i> Efectivo</span></label>
+                <input type="radio" name="pay" id="bc2" class="radio">
+                <label for="bc2"><span><i class="fa fa-cc-visa"></i> Tarjeta Credito O Debito</span></label>
+                <input type="radio" name="pay" id="bc3" class="radio">
+                <!-- <label for="bc3"><span><i class="fa fa-cc-paypal"></i> Paypal</span></label>
+                <input type="radio" name="pay" id="bc4" class="radio">
+                <label for="bc4"><span><i class="fa fa-money"></i> Pse</span></label> -->
+        </div>
 </div>
 <!-- <div class="input-group">
                 <div class="input-box">
@@ -176,13 +176,16 @@ Forma De Pago</h4>
                 </div>
 </div> -->
 <div class="input-group">
-                <div class="input-box">
-                    <button type="button"><a href="{% url 'inicio' %}" style="text-decoration: none; color: antiquewhite;">Volver Al Inicio</a></button>
-                </div>
-                <div class="input-box">
-                    <button type="submit">Finalizar Compra</button>
-                </div>
+        <div class="input-box">
+            <button type="button"><a href="{% url 'inicio' %}" style="text-decoration: none; color: antiquewhite;">Volver Al Inicio</a></button>
+        </div>
+         <div class="input-box">
+            <button type="reset">Limpiar Campos</button>
+        </div>
 </div>
+        <div class="input-box">
+            <button type="submit">Finalizar Compra</button>
+        </div>
 </form>
 </div>
 </body>
