@@ -17,6 +17,7 @@ def obtener_producto(request):
 def mostrar_productos(request):
 
     productos = Productos.objects.all()
+
     return render(request,'show_products.html',{'productos':productos})
 
 def agregar_producto(request):
@@ -32,7 +33,7 @@ def agregar_producto(request):
         data.save()
 
         return redirect('/mostrar_productos/')
-    
+
     else:
 
         return render (request, "add_products.html")
@@ -47,6 +48,7 @@ def editar_producto(request,pk):
         producto.cantidad_stock = request.POST["stock"]
         producto.description = request.POST["descripcion"]
         producto.save()
+
         return redirect('/mostrar_productos/')
 
     else:
@@ -71,4 +73,3 @@ def eliminar_producto(request, pk):
         }
 
         return render(request, 'delete_product.html', context)
-

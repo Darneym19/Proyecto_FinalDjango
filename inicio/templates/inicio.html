@@ -7,49 +7,33 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/inicio.css' %}">
     <link rel="stylesheet" href="{% static 'css/cards.css' %}">
     <meta name="viewport" content="width=device-width, user-scalabe=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </head>
     <body>
-             <!-- <div id="particles-js"></div> -->
   <header>
               <nav class= "navegacion">
-                 <ul class= "menu">
-                     <li><a href="inicio.html">Inicio</a></li>
-                     <!-- <li><a href="nosotros.html">Tienda</a></li> -->
-                     <!-- <li><a href="index.html">Ubicacion</a></li> -->
-                     <li><a href="#">Carrito</a></li>
-                     <!-- <li><a href="nosotros.html">nosotros</a></li> -->
-                     <!-- <li><a href="formulario.html">Acceder</a> -->
+                 <ul class= "menu"><a href="mostrar_productos" style="text-decoration: none; color: #ffffff;">Ver Stock </a></li>
+
+                     <li><a class="carrito" href="#"><i class="fa fa-shopping-cart icon"></i> Carrito</a></li>
                   </ul> 
               </nav>
             </header>
         <img src="{% static 'img/foto.png' %}" class="logol">
         <br>
-        <!-- <script src="script/particles.min.js"></script> -->
-        <!-- <script src="script/app.js"></script> -->
         <h1 class="title">Productos Destacados De La Tienda DM Tecnologic.</h1>
         
         <div class="container">
             
-           <div class="card">  
-            <img src="{% static 'img/cel1.png' %}">
-              <h4>Xiaomy</h4>
-              <p>Redmi Note 11 Edición Especial.</p>
-              <a href="#">¡Comprar Aqui!</a>
+            <!-- codigo danilo -->
+            {% for producto in productos %}
+            <div class="card">  
+              <img src="{% static 'img/cel1.png' %}">
+                <h4>{{producto.name}}</h4>
+                <p>{{producto.description}}</p>
+                <a href="/ventas/{{producto.pk}}" >¡Comprar Aqui!</a>
             </div>
-            
-            <div class="card">
-            <img src="{% static 'img/cel2.png' %}">
-              <h4>Samsung</h4>
-                    <p>Galaxy A52 128GB Azul.</p>
-              <a href="#">¡Comprar Aqui!</a>
-            </div>
-            
-            <div class="card">
-            <img src="{% static 'img/cel3.png' %}">
-              <h4>Apple</h4>
-                    <p>iPhone 12 - 64GB - Verde.</p>
-              <a href="#">¡Comprar Aqui!</a>
-            </div>
+            {% endfor %}
         </div>
     </body>
 </html> 

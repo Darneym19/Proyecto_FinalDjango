@@ -10,14 +10,11 @@ body{
     font-family: sans-serif;
     letter-spacing: 0.03em;
     line-height: 1.6;}
-
-
-
 .title{
 text-align: center;
 font-size: 40px;
 color:#6a6a6a;
-margin-top: 100px;
+/*margin-top: 10px;*/
 font-weight: 100;
     }
 

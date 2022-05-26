@@ -1,23 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-    <title>
-        Agregar producto
-    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda DM Tecnologic</title>
+    {% load static %}
+    <link href="{% static 'css/ventas.css' %}" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>Agregar nuevo producto: </h1>
+    <div class="wrapper">
+        <h2>Agregar Productos</h2>
+    <form method="POST" action="/agregar_producto/"> {% csrf_token%}
+            <h4>Datos producto</h4>
+        <div class="input-group">
+            <div class="input-box">
+                <input type="text" placeholder="Nombre producto" name="nombre" required class="name">
+                <i class="fa fa-user icon"></i>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Categoria" name="categoria" required class="name">
+                <i class="fa fa-user icon"></i>
+            </div>
+        </div>
+        <div class="input-group">
+            <div class="input-box">
+                <input type="text" placeholder="Costo" name="costo" required class="name">
+                <i class="fa fa-id-card-o icon"></i>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Stock" name="stock" required class="name">
+                <i class="fa fa-id-card-o icon"></i>
+            </div>
+        </div>
+            <div class="input-group">
+                <div class="input-box">
+                    <input  placeholder="Descripcion" type="text" name="descripcion" required class="name">
+                    <i class="fa fa-phone icon"></i>
+                </div>
+            </div>
 
-    <form action="/agregar_producto/" method="POST">{% csrf_token%}
-
-        <p>nombre: <input type="text" name="nombre"></p>
-        <p>categoria: <input type="text" name="categoria"></p>
-        <p>costo: <input type="text" name="costo"></p>
-        <p>stock: <input type="text" name="stock"></p>
-        <p>descripcion: <input type="text" name="descripcion"></p>
-        <input type="submit" value="Agregar producto">
+        <div class="input-group">
+            <div class="input-box">
+                <button type="button"><a href="{% url 'show-prods' %}" style="text-decoration: none; color: antiquewhite;">Ver productos</a></button>
+            </div>
+            <div class="input-box">
+                <button type="submit">Agregar producto</button>
+            </div>
+        </div>
+        <div class="input-box">
+            <button type="reset">Limpiar Campos</button>
+        </div>
     </form>
-    <form action="/mostrar_productos/" method="POST">{% csrf_token%}
-        <input type="submit" value="Ver productos">
-    </form>
+</div>
 </body>
+</html>

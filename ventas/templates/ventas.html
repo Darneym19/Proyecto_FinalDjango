@@ -3,16 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tienda DM Tecnologic</title>
     {% load static %}
     <link href="{% static 'css/ventas.css' %}" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
+
+    
+
     <div class="wrapper">
         <h2>Tienda DM Tecnologic</h2>
 <form method="POST">
+    <h4>Datos Del Producto Comprado</h4>
+    <div class="input-group">
+                    <div class="input-box">
+                        <input type="text" value={{producto.name}} placeholder="Nombre Producto" required class="name" disabled>
+                        <i class="fa fa-user icon"></i>
+                    </div>
+    <div class="input-box">
+                        <input type="text" value={{producto.category}} placeholder="Categoria" required class="name" disabled>
+                        <i class="fa fa-user icon"></i>
+                    </div>
+    </div>
+    <div class="input-group">
+        <div class="input-box">
+            <input type="text" placeholder="Costo" value={{producto.cost}}  required class="name" disabled>
+            <i class="fa fa-id-card-o icon"></i>
+        </div>
+    <div class="input-box">
+            <input type="number" min="0" value={{producto.cantidad_stock}}  placeholder="Cantidad" required class="name">
+            <i class="fa fa-id-card-o icon"></i>
+        </div>
+    </div>
+    <div class="input-group">
+    <div class="input-box">
+            <input type="text" placeholder="Descripcion" value={{producto.description}}  required class="name" disabled>
+            <i class="fa fa-id-card-o icon"></i>
+        </div>
+    </div>
             <h4>Datos Personales</h4>
 <div class="input-group">
                 <div class="input-box">
@@ -26,7 +56,7 @@
 </div>
 <div class="input-group">
     <div class="input-box">
-        <input list="text" placeholder="Tipo De Documento" required class="name">
+        <input list="Documento" placeholder="Tipo De Documento" required class="name">
         <i class="fa fa-id-card-o icon"></i>
         <datalist id="Documento">
             <option>Cedula Ciudadanía</option>
@@ -113,13 +143,12 @@
 Forma De Pago</h4>
                     <input type="radio" name="pay" id="bc1" class="radio">
                     <label for="bc1"><span><i class="fa fa-money"></i> Efectivo</span></label>
-                    <input type="radio" name="pay" id="bc2" checked class="radio">
+                    <input type="radio" name="pay" id="bc2" class="radio">
                     <label for="bc2"><span><i class="fa fa-cc-visa"></i> Tarjeta Credito O Debito</span></label>
                     <input type="radio" name="pay" id="bc3" class="radio">
-                    <label for="bc3"><span><i class="fa fa-cc-paypal"></i> Paypal</span></label>
-                    <!-- hola -->
+                    <!-- <label for="bc3"><span><i class="fa fa-cc-paypal"></i> Paypal</span></label>
                     <input type="radio" name="pay" id="bc4" class="radio">
-                    <label for="bc4"><span><i class="fa fa-money"></i> Pse</span></label>
+                    <label for="bc4"><span><i class="fa fa-money"></i> Pse</span></label> -->
                 </div>
 </div>
 <!-- <div class="input-group">
@@ -148,8 +177,7 @@ Forma De Pago</h4>
 </div> -->
 <div class="input-group">
                 <div class="input-box">
-                    <button type="submit">Volver Al Inicio <a href="{% url 'inicio' %}"></a></button>
-                    <!-- <li><a href="inicio.html">Inicio</a></li> -->
+                    <button type="button"><a href="{% url 'inicio' %}" style="text-decoration: none; color: antiquewhite;">Volver Al Inicio</a></button>
                 </div>
                 <div class="input-box">
                     <button type="submit">Finalizar Compra</button>
