@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 from django.forms import IntegerField
 
@@ -9,5 +10,6 @@ class Productos(models.Model):
     cost = models.IntegerField(default=0)
     cantidad_stock = models.IntegerField(default=0)
     description = models.TextField()
+    imagen = models.ImageField(upload_to = 'media/', null = True)
 
 

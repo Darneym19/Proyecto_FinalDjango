@@ -22,13 +22,14 @@
         <img src="{% static 'img/foto.png' %}" class="logol">
         <br>
         <h1 class="title">Productos Destacados Tienda DM.</h1>
+        <button type="button"><a href="/agregar_producto">ir a admin</a></button>
         
         <div class="container">
             
             <!-- codigo danilo -->
             {% for producto in productos %}
             <div class="card">  
-              <img src="{% static 'img/cel1.png' %}">
+                <img src="{{producto.imagen.url}}" >
                 <h4>{{producto.name}}</h4>
                 <p>{{producto.description}}</p>
                 <a href="/ventas/{{producto.pk}}" >¡Comprar Aqui!</a>

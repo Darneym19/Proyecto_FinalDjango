@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Employee</title>
+    <title>Tienda DM</title>
 </head>
 <style>
     table {
@@ -16,16 +16,15 @@
         margin-left: auto;
         margin-right: auto;
     }
-
     th,
     td {
         padding: 5px;
         border: 1px solid;
     }
 </style>
-
 <body>
-    <h2 style="text-align:center"> Informacion producto </h2>
+    <h2 style="text-align:center">Informacion De Los Productos</h2>
+    <h2 style="text-align:center">Inventario</h2>
     <table align="center" style="margin: 0px auto;">
         <thead>
             <tr>
@@ -60,14 +59,12 @@
     </table>
 
     <br><br>
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger" role="alert" style="text-align:center" >
         ¿Quieres ingresar un nuevo producto al inventario?
     </div>
-    
-    <p>
-        <button type="button"><a href="{% url 'add-prods' %}" style="text-decoration: none; color: #000000;">Ir a agregar producto </a></button>
-    </p>
 
+    <div style="margin-left: 43%; margin-top: 1%;"> 
+        <button type="button"><a href="{% url 'add-prods' %}" style="text-decoration: none; color: #000000;">Volver a agregar un producto </a></button>
+    </div>
 </body>
-
 </html>

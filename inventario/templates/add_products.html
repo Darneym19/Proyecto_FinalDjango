@@ -13,7 +13,7 @@
 <body>
     <div class="wrapper">
         <h2>Agregar Productos</h2>
-    <form method="POST" action="/agregar_producto/"> {% csrf_token%}
+    <form method="POST" action="/agregar_producto/" enctype="multipart/form-data"> {% csrf_token%}
             <h4>Datos producto</h4>
         <div class="input-group">
             <div class="input-box">
@@ -41,7 +41,12 @@
                     <i class="fa fa-minus icon"></i>
                 </div>
             </div>
-
+            <div class="input-group">
+                <div class="input-box">
+                    <h4>Agregue Imagen Del Producto</h4>
+                <input type="file" placeholder="Agragar Imagen" required accept="image/*" name="imagen">
+            </div>
+            </div>
         <div class="input-group">
             <div class="input-box">
                 <button type="button"><a href="{% url 'show-prods' %}" style="text-decoration: none; color: antiquewhite;">Ver productos</a></button>
