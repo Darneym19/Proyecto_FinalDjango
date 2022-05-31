@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda DM</title>
+    <title>Tienda DM - Ventas</title>
     {% load static %}
     <link href="{% static 'css/ventas.css' %}" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -12,11 +12,11 @@
 <body>
     <div class="wrapper">
         <h2>Tienda DM</h2>
-<form method="POST">
+<form method="POST" action="/factura/"> {% csrf_token %}
     <h4>Informacion Del Producto Comprado</h4>
     <div class="input-group">
                     <div class="input-box">
-                        <input type="text" value={{producto.name}} placeholder="Nombre Producto" required class="name" disabled>
+                        <input type="text" value={{producto.name}} placeholder="Nombre Producto" required class="name" name="txtproducto" disabled>
                         <i class="fa fa-chevron-circle-right icon"></i>
                     </div>
     <div class="input-box">
@@ -26,7 +26,7 @@
     </div>
     <div class="input-group">
         <div class="input-box">
-            <input type="text" placeholder="Costo" value={{producto.cost}}  required class="name" disabled>
+            <input type="text" placeholder="Costo" value={{producto.cost}}  required class="name" name="txtcosto" disabled>
             <i class="fa fa-chevron-circle-right icon"></i>
         </div>
     <div class="input-box">
@@ -36,18 +36,18 @@
     </div>
     <div class="input-group">
     <div class="input-box">
-            <input type="text" placeholder="Descripcion" value={{producto.description}}  required class="name" disabled>
+        <input type="text" placeholder="Descripcion" value="{{producto.description}}" class="name" disabled>
             <i class="fa fa-chevron-circle-right icon"></i>
         </div>
     </div>
             <h4>Datos Personales</h4>
 <div class="input-group">
                 <div class="input-box">
-                    <input type="text" placeholder="Nombres" required class="name">
+                    <input type="text" placeholder="Nombres" required class="name" name="txtnombre">
                     <i class="fa fa-user icon"></i>
                 </div>
 <div class="input-box">
-                    <input type="text" placeholder="Apellidos" required class="name">
+                    <input type="text" placeholder="Apellidos" required class="name" name="txtapellido">
                     <i class="fa fa-user icon"></i>
                 </div>
 </div>
@@ -62,75 +62,41 @@
           </datalist>
     </div>
 <div class="input-box">
-        <input type="text" placeholder="N° Documento" required class="name">
+        <input type="text" placeholder="N° Documento" required class="name" name="txtdocumento">
         <i class="fa fa-id-card-o icon"></i>
     </div>
 </div>
 <div class="input-group">
     <div class="input-box">
-        <input type="text" placeholder="Telefono" required class="name">
+        <input type="text" placeholder="Telefono" required class="name" name="txttelefono">
         <i class="fa fa-phone icon"></i>
     </div>
 </div>
 <div class="input-group">
     <div class="input-box">
-        <input type="email" placeholder="Correo Electronico" required class="name">
+        <input type="email" placeholder="Correo Electronico" required class="name" name="txtcorreo">
         <i class="fa fa-envelope icon"></i>
     </div>
 </div>
 <div class="input-group">
                 <div class="input-box">
-                    <input type="text" placeholder="Direccion" required class="name">
+                    <input type="text" placeholder="Direccion" required class="name" name="txtdireccion">
                     <i class="fa fa-street-view icon"></i>
                 </div>
 </div>
-<!-- De aca para abajo -->
 <div class="input-group">
     <div class="input-box">
-        <input list="Departamento" placeholder="Departamento" required class="name">
+        <input list="Departamento" placeholder="Departamento" required class="name" name="txtdepartamento">
         <i class="fa fa-globe icon"></i>
         <datalist id="Departamento">
-            <option>Amazonas</option>
             <option>Antioquia</option>
-            <option>Arauca</option>
-            <option>Atlántico</option>
-            <option>Bolívar</option>
-            <option>Boyacá</option>
-            <option>Caldas</option>
-            <option>Caquetá</option>
-            <option>Casanare</option>
-            <option>Cauca</option>
-            <option>Cesar</option>
-            <option>Chocó</option>
-            <option>Córdoba</option>
-            <option>Cundinamarca</option>
-            <option>Guainía</option>
-            <option>Guaviare</option>
-            <option>Huila</option>
-            <option>La Guajira</option>
-            <option>Magdalena</option>
-            <option>Meta</option>
-            <option>Nariño</option>
-            <option>Norte de Santander</option>
-            <option>Putumayo</option>
-            <option>Quindío</option>
-            <option>Risaralda</option>
-            <option>San Andrés y Providencia</option>
-            <option>Santander</option>
-            <option>Sucre</option>
-            <option>Tolima</option>
-            <option>Valle del Cauca</option>
-            <option>Vaupés</option>
-            <option>Vichada</option>
           </datalist>
     </div>
 <div class="input-box">
-        <input list="Ciudad" placeholder="Ciudad" required class="name">
+        <input list="Ciudad" placeholder="Ciudad" required class="name" name="txtciudad">
         <i class="fa fa-globe icon"></i>
         <datalist id="Ciudad">
             <option>Medellín</option>
-            <option>T</option>
-            <option>P</option>
           </datalist>
     </div>
 </div>
@@ -146,35 +112,8 @@
                 <input type="radio" name="pay" id="bc2" class="radio">
                 <label for="bc2"><span><i class="fa fa-cc-visa"></i> Tarjeta Credito O Debito</span></label>
                 <input type="radio" name="pay" id="bc3" class="radio">
-                <!-- <label for="bc3"><span><i class="fa fa-cc-paypal"></i> Paypal</span></label>
-                <input type="radio" name="pay" id="bc4" class="radio">
-                <label for="bc4"><span><i class="fa fa-money"></i> Pse</span></label> -->
         </div>
 </div>
-<!-- <div class="input-group">
-                <div class="input-box">
-                    <input type="tel" placeholder="Card Number" required class="name">
-                    <i class="fa fa-credit-card icon"></i>
-                </div>
-</div>
-<div class="input-group">
-                <div class="input-box">
-                    <input type="tel" placeholder="Card CVC" required class="name">
-                    <i class="fa fa-user icon"></i>
-                </div>
-<div class="input-box">
-                    <select>
-                        <option>01 jun</option>
-                        <option>02 jun</option>
-                        <option>03 jun</option>
-                    </select>
-                    <select>
-                        <option>2020</option>
-                        <option>2021</option>
-                        <option>2022</option>
-                    </select>
-                </div>
-</div> -->
 <div class="input-group">
         <div class="input-box">
             <button type="button"><a href="{% url 'inicio' %}" style="text-decoration: none; color: antiquewhite;">Volver Al Inicio</a></button>

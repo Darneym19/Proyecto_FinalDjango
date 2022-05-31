@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Tienda DM</title>
+    <title>Tienda DM - Inicio</title>
     {% load static %}
     <meta charset="utf-8">
     <link rel="shortcut icon" href="{% static 'img/foto.png' %}">
@@ -22,17 +22,16 @@
         <img src="{% static 'img/foto.png' %}" class="logol">
         <br>
         <h1 class="title">Productos Destacados Tienda DM.</h1>
-        <button type="button"><a href="/agregar_producto">ir a admin</a></button>
-        
+        <!-- <button type="button"><a href="/admin">ir a admin</a></button> -->
         <div class="container">
-            
-            <!-- codigo danilo -->
             {% for producto in productos %}
             <div class="card">  
                 <img src="{{producto.imagen.url}}" >
                 <h4>{{producto.name}}</h4>
-                <p>{{producto.description}}</p>
+                <h4>{{producto.description}}</h4>
+                <p>$ {{producto.cost}}</p>
                 <a href="/ventas/{{producto.pk}}" >¡Comprar Aqui!</a>
+                <p>{{producto.category}}</p>
             </div>
             {% endfor %}
         </div>

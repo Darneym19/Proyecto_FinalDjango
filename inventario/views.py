@@ -28,7 +28,7 @@ def agregar_producto(request):
         categoria = request.POST["categoria"]
         costo = request.POST["costo"]
         stock = request.POST["stock"]
-        descripcion = request.POST["descripcion"]
+        descripcion = request.POST["descripcion"] 
         imagen = request.FILES["imagen"]
         data = Productos(name=nombre, category=categoria, cost=costo, cantidad_stock=stock, description=descripcion, imagen=imagen)
         data.save()

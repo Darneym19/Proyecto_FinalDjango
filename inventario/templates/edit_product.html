@@ -1,104 +1,48 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar Producto</title>
+    <title>Tienda DM - Actualizar</title>
     {% load static %}
     <link href="{% static 'css/ventas.css' %}" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
-<!-- <style>
-    table {
-        border: 8px outset;
-        border-radius: 10px;
-        border-spacing: 10px;
-        padding: 20px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    th,
-    td {
-        padding: 5px;
-    }
-</style> -->
-
-<!-- <body>
-    <h2 style="text-align:center"> Actualizar datos del producto </h2>
-    <form method="POST">
-        {% csrf_token %}
-        <table style="width:50%" align="center">
-            <tr>
-                <td>Nombre</td>
-                <td><input type=" text" value="{{ productos.name }}" name="nombre" </td>
-            </tr>
-            <tr>
-                <td>Categoria</td>
-                <td><input type=" text" value="{{ productos.name }}" name="nombre" </td>
-            </tr>
-            <tr>
-                <td>Costo</td>
-                <td><input type="text" value="{{ productos.cost }}" name="costo" </td>
-            </tr>
-            <tr>
-                <td>Stock</td>
-                <td><input type="text" value="{{ productos.cantidad_stock}}" name="stock" </td>
-            </tr>
-            <tr>
-                <td>Descripcion</td>
-                <td><input type="text" value="{{ productos.description}}" name="descripcion" </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center"><input type="submit" class="btn btn-success"> </td>
-            </tr>
-        </table>
-
-
-    </form>
-</body> -->
-
 <body>
 <div class="wrapper">
     <h2>Actualizar Productos</h2>
-<form method="POST" action='editar_producto'> {% csrf_token %}
+<form method="POST"> {% csrf_token %}
     <div class="input-group">
         <div class="input-box">
-            <!-- <input type="text" placeholder="Nombre Del Producto" name="nombre" required class="name"> -->
-            <input type=" text" value="{{ productos.name }}" name="nombre">
-            <!-- <i class="fa fa-minus icon"></i> -->
+            <input type=" text" value="{{productos.name}}" name="nombre" required class="name">
+            <i class="fa fa-minus icon"></i>
         </div>
         <div class="input-box">
-            <!-- <input type="text" placeholder="Categoria" name="categoria" required class="name"> -->
-            <input type=" text" value="{{ productos.category }}" name="nombre">
-            <!-- <i class="fa fa-minus icon"></i> -->
+            <input type=" text" value="{{productos.category}}" name="categoria" required class="name">
+            <i class="fa fa-minus icon"></i>
         </div>
     </div>
     <div class="input-group">
         <div class="input-box">
-            <!-- <input type="text" placeholder="Costo" name="costo" required class="name"> -->
-            <input type="text" value="{{ productos.cost }}" name="costo">
-            <!-- <i class="fa fa-minus icon"></i> -->
+            <input type="text" value="{{productos.cost}}" name="costo" required class="name">
+            <i class="fa fa-minus icon"></i>
         </div>
         <div class="input-box">
-            <!-- <input type="text" placeholder="Stock" name="stock" required class="name"> -->
-            <input type="text" value="{{ productos.cantidad_stock}}" name="stock">
-            <!-- <i class="fa fa-minus icon"></i> -->
+            <input type="text" value="{{productos.cantidad_stock}}" name="stock" required class="name">
+            <i class="fa fa-minus icon"></i>
         </div>
     </div>
         <div class="input-group">
             <div class="input-box">
-                <!-- <input  placeholder="Descripcion" type="text" name="descripcion" required class="name"> -->
-                <input type="text" value="{{ productos.description}}" name="descripcion">
-                <!-- <i class="fa fa-minus icon"></i> -->
+                <input type="text" value="{{productos.description}}" name="descripcion" required class="name">
+                <i class="fa fa-minus icon"></i>
             </div>
         </div>
-    <div class="input-group">
-        <div class="input-box">
-            <button type="button"><a href="{% url 'edit-prods' %}" style="text-decoration: none; color: rgb(255, 255, 255);">Actualizar</a></button>
-        </div>
+        <div class="input-group">
+            <div class="input-box">
+                <button type="submit">Actualizar Producto</button>
+            </div>
 </form>
 </div>
 </body>
