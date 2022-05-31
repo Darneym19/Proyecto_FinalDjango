@@ -12,31 +12,31 @@
 <body>
     <div class="wrapper">
         <h2>Tienda DM</h2>
-<form method="POST" action="/factura/"> {% csrf_token %}
+<form method="POST" action="/fectura/"> {% csrf_token %}
     <h4>Informacion Del Producto Comprado</h4>
     <div class="input-group">
                     <div class="input-box">
-                        <input type="text" value={{producto.name}} placeholder="Nombre Producto" required class="name" name="txtproducto" disabled>
+                        <input type="text" value={{producto.name}} required class="name" name="txtproducto" readonly>
                         <i class="fa fa-chevron-circle-right icon"></i>
                     </div>
     <div class="input-box">
-                        <input type="text" value={{producto.category}} placeholder="Categoria" required class="name" disabled>
+                        <input type="text" value={{producto.category}} placeholder="Categoria" required class="name" readonly>
                         <i class="fa fa-chevron-circle-right icon"></i>
                     </div>
     </div>
     <div class="input-group">
         <div class="input-box">
-            <input type="text" placeholder="Costo" value={{producto.cost}}  required class="name" name="txtcosto" disabled>
+            <input type="text" placeholder="Costo" value={{producto.cost}}  required class="name" name="txtcosto" readonly>
             <i class="fa fa-chevron-circle-right icon"></i>
         </div>
     <div class="input-box">
-            <input type="text" min="0" value={{producto.cantidad_stock}}  placeholder="Stock" required class="name" disabled>
+            <input type="text" min="0" value={{producto.cantidad_stock}}  placeholder="Stock" required class="name" readonly>
             <i class="fa fa-chevron-circle-right icon"></i>
         </div>
     </div>
     <div class="input-group">
     <div class="input-box">
-        <input type="text" placeholder="Descripcion" value="{{producto.description}}" class="name" disabled>
+        <input type="text" placeholder="Descripcion" value="{{producto.description}}" class="name" name="txtdescripcion" readonly>
             <i class="fa fa-chevron-circle-right icon"></i>
         </div>
     </div>

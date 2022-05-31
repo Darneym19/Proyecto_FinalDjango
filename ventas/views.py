@@ -1,9 +1,55 @@
+import email
 from multiprocessing import context
+from re import template
 from django.shortcuts import render, redirect
 from inventario.models import Productos
 from ventas.models import factura
+from django.template.loader import get_template
+from django.core.mail import EmailMultiAlternatives
+from django.conf import settings
+import time
 
 # Create your views here.
+
+def Correo (email,nombre,apellido,producto,costo,direccion,ciudad,descripcion):
+    fecha = str(time.strftime("%d/%m/%Y"))
+    datos = {'email':email,'nombre':nombre,'apellido':apellido,'producto':producto,
+             'costo':costo,'direccion':direccion,'fecha':fecha,'ciudad':ciudad,'descripcion':descripcion}
+    template = get_template('correo.html')
+    contenido = template.render(datos)
+
+    envio = EmailMultiAlternatives(
+        'Compra producto - Tienda DM',
+        'Pediodo - Tienda DM',
+        settings.EMAIL_HOST_USER,
+        [email] 
+    )
+    envio.attach_alternative(contenido, 'text/html')
+    try:
+        envio.send()
+    except:
+        print("No Se Pudo Enviar El Correo.")
+
+def Correo_admin (nombre,apellido,producto,costo,direccion,ciudad,descripcion):
+    email = 'ivan.maya250@pascualbravo.edu.co'
+    fecha = str(time.strftime("%d/%m/%Y"))
+    datos = {'email':email,'nombre':nombre,'apellido':apellido,'producto':producto,
+             'costo':costo,'direccion':direccion,'fecha':fecha,'ciudad':ciudad,'descripcion':descripcion}
+    template = get_template('correo_admin.html')
+    contenido = template.render(datos)
+
+    envio = EmailMultiAlternatives(
+        'Despachar Producto Al Cliente.',
+        'Pediodo - Tienda DM',
+        settings.EMAIL_HOST_USER,
+        [email] 
+    )
+    envio.attach_alternative(contenido, 'text/html')
+    try:
+        envio.send()
+    except:
+        print("No Se Pudo Enviar El Correo.")
+        
 def ventas (request,pk):
     producto = Productos.objects.get(id=pk)
     id  = producto.id
@@ -21,6 +67,11 @@ def fectura(request):
         ciudad = request.POST["txtciudad"]
         producto = request.POST["txtproducto"]
         costo = request.POST["txtcosto"]
+        descripcion = request.POST["txtdescripcion"]
+
+        Correo(correo,nombre,apellido,producto,costo,direccion,ciudad,descripcion)
+
+        Correo_admin(nombre,apellido,producto,costo,direccion,ciudad,descripcion)
 
         data = factura(nombre=nombre, apellido=apellido,documento=documento,telefono=telefono,
         correo=correo,direccion=direccion,departamento=departamento,
